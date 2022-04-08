@@ -17,4 +17,8 @@ class ArticlesController < ApplicationController
     ArticleSerializer
   end
 
+  def create
+    binding.break
+  end
+
 end
