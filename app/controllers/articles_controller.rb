@@ -28,6 +28,14 @@ class ArticlesController < ApplicationController
 
   end
 
+  def update
+    article = Article.find(params[:id])
+    article.update!(article_params)
+    render json: serialize.new(article), status: :ok
+  rescue
+    render json: { "errors": errors(article) }, status: :unprocessable_entity
+  end
+
   private
 
   def article_params
